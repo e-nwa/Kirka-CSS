@@ -1,0 +1,328 @@
+/*
+	@name - Dark Fantasy
+	@description - A custom css made for Deception
+	@details - INCOMPLETE
+
+	- About the creator -
+	@discorduser - e_nwa
+	@kirkaid - #09EVRK
+*/
+
+:root{
+	/* Interface */
+	--blur: 7px;
+	--interface-border-radius: 15px;
+	--shadow-prim: 0px 0px 7px -3px hsl(0, 0%, 75%); /*RED (not recommended): hsl(0, 90%, 30%)*/
+	
+	/* Character */
+	--level-background: hsl(0, 0%, 50%, .5);
+	--level-color: hsl(0, 0%, 95%);
+	--progressline-background: hsl(0, 0%, 35%, .5);
+	--progressbar-background: hsl(0, 1%, 75%);
+	
+	/* Everywhere */
+	--glow-prim: hsl(0, 30%, 40%, .5);/*hsl(0, 40%, 45%)*/
+	--glow-seco: hsl(0, 30%, 60%, .5);/*hsl(0, 40%, 60%)*/
+	--item-background-hover: hsla(0, 5%, 15%, .75);
+	--item-shadow-hover: 0px 0px 10px 0px hsl(0, 40%, 50%, .75);
+	
+	/* Left Icons */
+	--visibleitems: 1;
+	
+	/* Quests */
+		/*the difference between the two quest variables is quests is the entire thing while quest is the singular quest*/
+	--quests-border: hsl(0, 0%, 25%, .3);
+	--quest-border: hsl(0, 0%, 35%, .5);
+	--tab-selected: hsl(0, 0%, 25%, .25);
+	--tab-unselected: hsl(0, 0%, 50%, .25);
+	
+}
+
+@keyframes glow{
+	0%  {border-color: var(--glow-prim);}
+	50% {border-color: var(--glow-seco);}
+	100% {border-color: var(--glow-prim);}
+}
+
+.background[data-v-20b10913],
+#auth-user[data-v-20b10913] .card-cont.user-info > .progress-label,
+.icon-btn[data-v-323a31a5] .text-icon,
+#invite-btn > div:not(.text),
+#right-interface[data-v-20b10913] > .settings-and-socicons > .soc-group,
+#play[data-v-20b10913] button > div:not(.text){
+	display: none;
+}
+
+#auth-user[data-v-20b10913] .card-cont.avatar-info:hover,
+#auth-user[data-v-20b10913] .card-cont.user-info:hover,
+.left-icons[data-v-20b10913] > .icon-btn:hover,
+#invite-btn:hover,
+#right-interface[data-v-20b10913] > .settings-and-socicons > .settings:hover,
+#right-interface[data-v-20b10913] > .quests .quest .reward.item:hover,
+#play[data-v-20b10913] .select-region:hover,
+#play[data-v-20b10913] button:hover,
+#play[data-v-20b10913] .select-mod:hover{
+	background: var(--item-background-hover) !important;
+	border: solid 3px;
+	box-shadow: var(--item-shadow-hover);
+	z-index: 1;
+	
+	animation-name: glow;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+#invite-btn,
+#play[data-v-20b10913] button{
+	background: transparent !important;
+}
+
+.progress-line{
+	background: var(--progressline-background) !important;
+	border-radius: 5px !important;
+	height: 7px !important;
+	padding: 0 !important;
+	margin-top: 5px !important;
+}
+
+
+.progress-line > .progress{
+	background: var(--progressbar-background) !important;
+	border-radius: 5px;
+	height: 75%;
+}
+
+#app[data-v-7118ad40]:has(.interface[data-v-20b10913]),
+#app[data-v-7118ad40].has-interface{
+	content: '';
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-image: url('https://wallpapercrafter.com/desktop/156112-dark-fantasy-fantasy-art-castle-building-artwork.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+#app[data-v-7118ad40]::before{
+	content: "**To continue, you need to inject the JS script**\A\A document.querySelectorAll('*').forEach(el => {\A   if (el.querySelector(':scope > .interface')) {\A     el.classList.add('has-interface');\A   }});";
+	font-size: x-large;
+	white-space: pre;
+	width: 100vw;
+	height: 100vh;
+	z-index: 5;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background: hsl(0, 0%, 5%);
+	display: block !important;
+	align-content: center;
+}
+
+#app[data-v-7118ad40]:has(.interface[data-v-20b10913])::before,
+#app[data-v-7118ad40].has-interface::before{
+	display: none !important;
+}
+
+.interface[data-v-20b10913]{
+	position: fixed;
+	display: flex;
+	width: 95%;
+	height: 95%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background: hsl(0, 0%, 0%, .75);
+	backdrop-filter: blur(var(--blur));
+	border-radius: var(--interface-border-radius);
+	box-shadow: var(--shadow-prim);
+	z-index: 1;
+}
+
+#left-interface[data-v-20b10913]{
+	width: fit-content;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#left-interface[data-v-20b10913] div{
+	background: transparent;
+	border: none;
+	border-radius: 0;
+	margin: 0;
+}
+
+#auth-user[data-v-20b10913] .card-cont.avatar-info{ border-top-left-radius: var(--interface-border-radius); }
+
+#auth-user[data-v-20b10913] .card-cont.user-info .level-cont{ color: var(--level-color); }
+
+#auth-user[data-v-20b10913] .card-cont.user-info .level-cont > .level-value{
+	background: var(--level-background);
+	border-radius: 3px;
+	padding: 0;
+	height: fit-content;
+	width: fit-content;
+}
+
+#left-interface[data-v-20b10913] > .moneys{
+	margin-left: 8px;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Left-Icons: Expand on hover */
+/* DISABLED DUE TO "INCONVENIENCE" -QUOTED FROM ZENOS; ENABLE FOR INCONVENIENCE
+.left-icons[data-v-20b10913]{ transition: height .5s; }
+.left-icons[data-v-20b10913]:hover{ transition: height .125s ease-in; }
+
+.left-icons[data-v-20b10913]:not(:hover){
+	grid-template-rows: 1fr;
+    height: 5vh !important;
+	min-height: calc(50px * var(--visibleitems));
+	overflow: hidden;
+}
+
+.left-icons[data-v-20b10913]:hover > .icon-btn{ opacity: 1; }
+
+.left-icons[data-v-20b10913] > .icon-btn{
+    transition: 
+		opacity .25s ease-in .125s,
+		border-color .125s,
+		box-shadow .075s,
+		background .175s;
+	opacity: 0;
+}
+*/
+
+.left-icons[data-v-20b10913]{
+	display: grid !important;
+	grid-template-rows: repeat(7, 1fr);
+	background: transparent;
+	pointer-events: none;
+}
+
+.icon-btn{
+	width: 100%;
+	height: 100%;
+}
+
+.left-icons[data-v-20b10913] > .icon-btn{
+	background: none;
+	border: none;
+	padding: 0;
+}
+
+.left-icons[data-v-20b10913] > .icon-btn:first-child{
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.left-icons[data-v-20b10913] > .icon-btn:last-child{
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.HUB {
+	grid-row: 1;
+	grid-column: 1;
+}
+
+.STORE {
+	grid-row: 1;
+	grid-column: 2;
+}
+
+.SERVERS {
+	grid-row: 2;
+	grid-column: 1;
+}
+
+.QUESTS {
+	grid-row: 3;
+	grid-column: 1;
+}
+.FRIENDS {
+	grid-row: 4;
+	grid-column: 1;
+}
+.INVENTORY {
+	grid-row: 5;
+	grid-column: 1;
+}
+.MAP {
+	grid-row: 6;
+	grid-column: 1;
+}
+
+.left-icons[data-v-20b10913] > .icon-btn:hover .text-icon{ display: block; }
+
+.heads[data-v-2b0729dc] > .levels{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: var(--level-color);
+	padding: 5px;
+	height: 50px;
+	font-size: x-large;
+}
+
+.heads[data-v-2b0729dc] > .levels > .klo{
+	margin-left: 5px;
+	font-size: x-small;
+}
+
+.heads[data-v-2b0729dc] > .head-right > .clan-tag{ font-size: small !important; }
+
+.heads[data-v-2b0729dc] > .head-right > .nickname{
+	font-size: xx-large;
+	margin: 0;
+}
+
+#right-interface[data-v-20b10913] > .settings-and-socicons{ flex-direction: row-reverse; }
+
+#right-interface[data-v-20b10913] > .settings-and-socicons > .settings{
+	flex: 0;
+	width: 75px;
+	height: 75px;
+	border: none;
+	border-top-right-radius: var(--interface-border-radius);
+	background: transparent;
+	overflow: visible;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#right-interface[data-v-20b10913] > .quests{
+	transform: scale(90%);
+	background: transparent;
+	border-color: var(--quests-border);
+}
+
+#right-interface[data-v-20b10913] > .quests .tab{
+	background: var(--tab-unselected);
+}
+
+#right-interface[data-v-20b10913] > .quests .tab.selected{
+	background: var(--tab-selected);
+}
+
+#right-interface[data-v-20b10913] > .quests .quest{
+	background: transparent;
+	border: 2px solid var(--quest-border);
+}
+
+#right-interface[data-v-20b10913] > .quests .quest .reward{ background: transparent; }
+
+#play[data-v-20b10913] .select-region,
+#play[data-v-20b10913] .select-mod{
+	background: transparent;
+	border: none;
+}
+
+#play[data-v-20b10913] .play-btn{
+	transform: none;
+}
