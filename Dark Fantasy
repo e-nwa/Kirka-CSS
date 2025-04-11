@@ -1,6 +1,6 @@
 /*
 	@name - Dark Fantasy
-	@description - A custom css made for Kirka User #651HQ2
+	@description - A custom css made for Deception
 	@details - INCOMPLETE
 
 	- About the creator -
@@ -33,6 +33,8 @@
 		/*the difference between the two quest variables is quests is the entire thing while quest is the singular quest*/
 	--quests-border: hsl(0, 0%, 25%, .3);
 	--quest-border: hsl(0, 0%, 35%, .5);
+	--tab-selected: hsl(0, 0%, 25%, .25);
+	--tab-unselected: hsl(0, 0%, 50%, .25);
 	
 }
 
@@ -124,20 +126,6 @@
 }
 
 #auth-user[data-v-20b10913] .card-cont.user-info > .progress-label{ display: none; }
-
-#auth-user[data-v-20b10913] .card-cont.user-info .progress-line{
-	background: var(--progressline-background);
-	border-radius: 2px;
-	height: 7px;
-	padding: 0;
-	margin-top: 5px;
-}
-
-#auth-user[data-v-20b10913] .card-cont.user-info .progress-line > .progress{
-	background: var(--progressbar-background);
-	border-radius: 3px;
-	height: 75%;
-}
 
 #left-interface[data-v-20b10913] > .moneys{
 	margin-left: 8px;
@@ -325,7 +313,33 @@
 	border-color: var(--quests-border);
 }
 
+#right-interface[data-v-20b10913] > .quests .tab{
+	background: var(--tab-unselected);
+}
+
+#right-interface[data-v-20b10913] > .quests .tab.selected{
+	background: var(--tab-selected);
+}
+
 #right-interface[data-v-20b10913] > .quests .quest{
 	background: transparent;
 	border: 2px solid var(--quest-border);
 }
+
+#right-interface[data-v-20b10913] > .quests .quest .reward{ background: transparent; }
+
+.progress-line{
+	background: var(--progressline-background) !important;
+	border-radius: 5px !important;
+	height: 7px !important;
+	padding: 0 !important;
+	margin-top: 5px !important;
+}
+
+
+.progress-line > .progress{
+	background: var(--progressbar-background) !important;
+	border-radius: 5px;
+	height: 75%;
+}
+
