@@ -328,6 +328,17 @@
 
 #right-interface[data-v-20b10913] > .quests .quest .reward{ background: transparent; }
 
+#right-interface[data-v-20b10913] > .quests .quest .reward.item:hover{
+	background: var(--item-background-hover);
+	border: solid 3px;
+	box-shadow: var(--item-shadow-hover);
+	z-index: 1;
+	
+	animation-name: glow;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
 .progress-line{
 	background: var(--progressline-background) !important;
 	border-radius: 5px !important;
